@@ -10,18 +10,18 @@ import android.widget.Button;
 /**
  * Created by Saiteja on 6/7/2016.
  */
-public class Second extends AppCompatActivity {
+public class ChooseOptionActivity extends AppCompatActivity {
     Button b1,b2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.second);
+        setContentView(R.layout.activity_choose_option);
         Button b1=(Button)findViewById(R.id.add);
         Button b2=(Button)findViewById(R.id.drop);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Second.this,Add.class);
+                Intent i = new Intent(ChooseOptionActivity.this,ChooseTermCourseActivity.class);
                 startActivity(i);
             }
         });

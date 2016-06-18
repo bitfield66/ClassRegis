@@ -8,15 +8,24 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Second"></activity>
-        <activity android:name=".Add"></activity>
+        <activity
+            android:name=".ChooseOptionActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ChooseTermCourseActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".ClassesListActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
