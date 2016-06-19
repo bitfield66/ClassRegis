@@ -10,6 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
+            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:launchMode="singleTop"
             android:name=".ChooseOptionActivity"
             android:screenOrientation="portrait"></activity>
         <activity
@@ -25,6 +27,9 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".ClassesListActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".SelectInstructor"
             android:screenOrientation="portrait"></activity>
     </application>
 

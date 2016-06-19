@@ -1,7 +1,5 @@
 package mobile.project1.com.classregis;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,24 +7,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import mobile.project1.com.classregis.adapters.ClassesListAdapter;
+import mobile.project1.com.classregis.adapters.InstructorListAdapter;
 
-public class ClassesListActivity extends AppCompatActivity {
+public class SelectInstructor extends AppCompatActivity {
 
     private RecyclerView rvItems;
-    private ClassesListAdapter classesListAdapter;
-    public static int CLASS__REQUEST_CODE=500;
+    private InstructorListAdapter instructorListAdapter;
+    private boolean isDropClass = false;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_classes);
 
         Bundle extras = getIntent().getExtras();
-        String subject = extras.getString("subject");
+        String subject = extras.getString("selSubject");
+
+        if(extras.containsKey("isDropClass")){
+            isDropClass = extras.getBoolean("isDropClass");
+        }
         setActionBar(subject);
         defineControls();
-        rvItems.setLayoutManager(new LinearLayoutManager(ClassesListActivity.this));
-        rvItems.setAdapter(classesListAdapter = new ClassesListAdapter(ClassesListActivity.this));
+        rvItems.setLayoutManager(new LinearLayoutManager(SelectInstructor.this));
+        rvItems.setAdapter(instructorListAdapter = new InstructorListAdapter(SelectInstructor.this,isDropClass));
     }
 
     @Override
@@ -38,14 +41,6 @@ public class ClassesListActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             android.support.v7.app.ActionBar actionBar = getSupportActionBar();
             actionBar.setTitle(subject);
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if(requestCode == CLASS__REQUEST_CODE && resultCode == Activity.RESULT_OK){
-            finish();
         }
     }
 
